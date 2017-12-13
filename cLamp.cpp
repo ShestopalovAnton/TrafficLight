@@ -4,7 +4,7 @@
  *  Created on: Nov 13, 2017
  *      Author: SAK
  */
-/// Hello world
+
 #include "cLamp.h"
 #include "Arduino.h"
 
