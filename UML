@@ -1,0 +1,64 @@
+/*@startuml
+class cLamp{
+	+ cLamp(pinNumber, pinlevelOn, pinlevelOff, blinkPeriod)
+	--
+	+ ON()
+	+ OFF()
+	+ Blink(period)
+	+ SetMode(newMode)
+}
+
+class cTrafficLight{
+	+ Run()
+	+ SetMode(newMode)
+}
+
+class cTrafficLightPedestrian{
+	+ Run()
+	+ SetMode(newMode)
+}
+
+class cTrafficLightCars{
+	+ Run()
+	+ SetMode(newMode)
+}
+cTrafficLight <|-left- cTrafficLightPedestrian
+cTrafficLight <|-right- cTrafficLightCars
+
+cLamp o--cTrafficLightPedestrian
+cLamp o--cTrafficLightCars
+@enduml
+
+@startuml
+
+cCrossroads -> cTrafficlight : Run()
+activate cCrossroads
+activate cTrafficlight
+cTrafficlight -> cTrafficlightCars : Run()
+deactivate cTrafficlight
+deactivate cCrossroads
+
+
+cCrossroads -> cTrafficlight : Run()
+activate cCrossroads
+activate cTrafficlight
+cTrafficlight -> cTrafficlightPedestrian : Run()
+deactivate cCrossroads
+deactivate cTrafficlight
+
+cCrossroads -> cTrafficlightPedestrian : getMode()
+activate cCrossroads
+cTrafficlightPedestrian -> cCrossroads : return mode
+deactivate cCrossroads
+deactivate cCrossroads
+@enduml
+
+@startuml
+
+	[*] --> PinStateSwitching
+	PinStateSwitching --> Waiting
+	Waiting -> Waiting : time < delay
+	Waiting -> PinStateSwitching : time > delay
+
+@enduml
+*/
