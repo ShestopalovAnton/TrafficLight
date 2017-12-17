@@ -49,7 +49,7 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 AR += \
-C:\Users\Anton\Desktop\trafic_light_2017_2018-master\Release\arduino.ar \
+C:\Users\Anton\Documents\GitHub\trafic_light_2017_2018-master\Release\arduino.ar \
 
 ELF += \
 TraficLightTeacher.elf \
@@ -65,19 +65,19 @@ all: TraficLightTeacher
 TraficLightTeacher: $(HEX)
 	@echo 'Building target: $@'
 	@echo 'Printing size:'
-	"C:\sloeber\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-size" --format=avr --mcu=atmega328p "C:/Users/Anton/Desktop/trafic_light_2017_2018-master/Release/TraficLightTeacher.elf"
+	"D:\Oxygen\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-size" --format=avr --mcu=atmega328p "C:/Users/Anton/Documents/GitHub/trafic_light_2017_2018-master/Release/TraficLightTeacher.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-C:\Users\Anton\Desktop\trafic_light_2017_2018-master\Release\arduino.ar: $(AR_OBJ)
+C:\Users\Anton\Documents\GitHub\trafic_light_2017_2018-master\Release\arduino.ar: $(AR_OBJ)
 	@echo 'Starting archiver'
-	"C:\sloeber\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-gcc-ar" rcs    C:/Users/Anton/Desktop/trafic_light_2017_2018-master/Release/arduino.ar $(AR_OBJ)
+	"D:\Oxygen\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-gcc-ar" rcs    C:/Users/Anton/Documents/GitHub/trafic_light_2017_2018-master/Release/arduino.ar $(AR_OBJ)
 	@echo 'Finished building: $@'
 	@echo ' '
 
 TraficLightTeacher.elf: $(LINK_OBJ) $(AR)
 	@echo 'Starting combiner'
-	"C:\sloeber\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-gcc" -Wall -Wextra -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega328p -o "C:\Users\Anton\Desktop\trafic_light_2017_2018-master/Release/TraficLightTeacher.elf"   $(LINK_OBJ) $(AR)   C:/Users/Anton/Desktop/trafic_light_2017_2018-master/Release/arduino.ar  "-LC:\Users\Anton\Desktop\trafic_light_2017_2018-master/Release" -lm
+	"D:\Oxygen\eclipse\/arduinoPlugin/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-gcc" -Wall -Wextra -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega328p -o "C:\Users\Anton\Documents\GitHub\trafic_light_2017_2018-master/Release/TraficLightTeacher.elf"   $(LINK_OBJ)   C:/Users/Anton/Documents/GitHub/trafic_light_2017_2018-master/Release/arduino.ar  "-LC:\Users\Anton\Documents\GitHub\trafic_light_2017_2018-master/Release" -lm
 	@echo 'Finished building: $@'
 	@echo ' '
 
